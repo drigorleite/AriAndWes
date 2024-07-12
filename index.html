@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casamento de Ariele e Wesley</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALAygsesAfdHrlCuG-N56rgcuP-X3Pf0Y&callback=initMap" async defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Ariele & Wesley</h1>
+        <nav>
+            <ul>
+                <li><a href="#home" data-lang="home">Início</a></li>
+                <li><a href="#story" data-lang="story">Nossa História</a></li>
+                <li><a href="#details" data-lang="details">Detalhes do Evento</a></li>
+                <li><a href="#live" data-lang="live">Transmissão ao Vivo</a></li>
+                <li><a href="#rsvp" data-lang="rsvp">RSVP</a></li>
+            </ul>
+            <div class="language-switcher">
+                <button onclick="setLanguage('pt')">PT</button>
+                <button onclick="setLanguage('en')">EN</button>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home">
+
+        <div class="countdown">
+            <span>📅 <strong id="days"></strong> <span data-lang="days">dias</span></span>
+            <span>⏰ <strong id="hours"></strong> <span data-lang="hours">horas</span></span>
+            <span>🕒 <strong id="minutes"></strong> <span data-lang="minutes">minutos</span></span>
+            <span>⏳ <strong id="seconds"></strong> <span data-lang="seconds">segundos</span></span>
+        </div>
+
+        <section id="live">
+            <h2 data-lang="liveTitle">Transmissão ao Vivo</h2>
+            <div class="live-container">
+                <iframe src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/{YOUR_PAGE_ID}/videos/{YOUR_VIDEO_ID}/&show_text=false&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
+            </div>
+        </section>
+
+        <div class="gallery">
+            <div class="gallery-track">
+                <img src="AriWes1.jpg" alt="Foto 1">
+                <img src="AriWes2.jpg" alt="Foto 2">
+                <img src="AriWes3.jpg" alt="Foto 3">
+                <img src="AriWes4.jpg" alt="Foto 4">
+                <img src="AriWes5.jpg" alt="Foto 5">
+                <img src="AriWes6.jpg" alt="Foto 6">
+                <img src="AriWes7.jpg" alt="Foto 7">
+                <img src="AriWes8.jpg" alt="Foto 8">
+                <img src="AriWes9.jpg" alt="Foto 9">
+                <img src="AriWes10.jpg" alt="Foto 10">
+            </div>
+        </div>
+    </section>
+    
+    <section id="story">
+        <div class="story-text">
+            <h2 data-lang="storyTitle">Nossa História</h2>
+            <p data-lang="storyText1">
+                Nos conhecemos de uma maneira bem moderna: por um aplicativo de aprendizado de inglês. A conexão foi instantânea, e passamos meses conversando e nos conhecendo melhor. Depois de muitas conversas e trocas de mensagens, finalmente marcamos nosso primeiro encontro, que aconteceu em um lugar especial - o aeroporto. Foi lá que nossas almas, que pareciam pertencer uma à outra, finalmente se encontraram. A primeira impressão um do outro foi simplesmente maravilhosa.
+            </p>
+            <p data-lang="storyText2">
+                A primeira lembrança marcante que temos juntos é o nosso grande encontro no aeroporto. Após meses de espera, quando ele finalmente veio me conhecer pessoalmente, foi um momento inesquecível. Sentimo-nos no céu, como se nossas almas finalmente tivessem se encontrado. Aquela sensação de pertencimento e completude era algo que nunca tínhamos experimentado antes.
+            </p>
+            <p data-lang="storyText3">
+                Nossa transição de namorados para noivos foi igualmente especial. Ele preparou tudo com muito carinho e atenção. Me levou à Avenida Paulista, um dos lugares mais icônicos de São Paulo, e no topo de um arranha-céu, ele se ajoelhou e fez o pedido. Foi um momento mágico que selou nosso compromisso de passar a vida juntos.
+            </p>
+            <p data-lang="storyText4">
+                Percebemos que queríamos estar juntos para sempre no momento em que nos despedimos pela primeira vez no aeroporto. A despedida foi horrível, mas também foi um momento decisivo. Nosso relacionamento, que foi construído à distância, nos ensinou o valor da comunicação e do companheirismo. A distância, nossa maior adversária, acabou sendo a grande fortalecedora da nossa relação. Cada conversa e cada momento juntos, mesmo que virtual, fortaleceu o nosso laço e nos preparou para o futuro que queríamos construir lado a lado.
+            </p>
+        </div>
+        <div class="story-images">
+            <img src="AriWes1.jpg" alt="Foto 1">
+            <img src="AriWes2.jpg" alt="Foto 2">
+            <img src="AriWes3.jpg" alt="Foto 3">
+        </div>
+    </section>
+    
+
+    <section id="details">
+        <h2 data-lang="detailsTitle">Detalhes do Evento</h2>
+        <div class="details-container">
+            <div class="details-card">
+                <span class="detail-icon">📅</span>
+                <span class="detail-text" data-lang="date">Data: 13 de Julho, 2024</span>
+            </div>
+            <div class="details-card">
+                <span class="detail-icon">⏰</span>
+                <span class="detail-text event-time" data-lang="time">Hora: 1 PM</span>
+            </div>
+            <div class="details-card">
+                <span class="detail-icon">📍</span>
+                <span class="detail-text" data-lang="location">Local: Beulah Baptist Church</span>
+            </div>
+        </div>
+        <div id="map" style="height: 400px; width: 100%;"></div>
+    </section>
+
+
+
+    <section id="rsvp">
+        <h2 data-lang="rsvpTitle">RSVP</h2>
+        <p data-lang="rsvpText">Por favor, confirme sua presença enviando um e-mail para <a href="mailto:arielle@constancio31@gmail.com">arielle@constancio31@gmail.com</a>.</p>
+        <div class="social-media">
+            <a href="https://www.facebook.com">Facebook</a>
+            <a href="https://www.youtube.com">YouTube</a>
+            <!-- Add more if needed -->
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Ariele & Wesley</p>
+    </footer>
+</body>
+</html>

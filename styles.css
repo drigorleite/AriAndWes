@@ -1,0 +1,269 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: #4B5049; /* Texto principal */
+    line-height: 1.6;
+}
+
+header {
+    background-color: #808C74; /* Fundo do cabeçalho */
+    color: #FFF;
+    padding: 1.2rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.8rem;
+    font-weight: 300;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+nav ul li {
+    padding: 0 15px;
+}
+
+nav ul li a {
+    color: #FFF;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+section {
+    padding: 2rem;
+    text-align: center;
+}
+
+.language-switcher {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.language-switcher button {
+    background-color: #808C74;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.language-switcher button:hover {
+    background-color: #4B5049;
+}
+
+
+#home .countdown {
+    font-size: 1.5rem;
+    color: #4B5049; /* Texto da contagem regressiva */
+    background-color: #FFF; /* Fundo da contagem regressiva */
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+#home .gallery h2, #story h2, #details h2, #rsvp h2 {
+    font-size: 2.2rem;
+    color: #4B5049; /* Texto dos títulos das seções */
+    margin-bottom: 1.5rem;
+}
+
+/* Estilos para a seção de transmissão ao vivo */
+#live {
+    padding: 2rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+#live h2 {
+    font-size: 2.2rem;
+    color: #4B5049; /* Texto dos títulos das seções */
+    margin-bottom: 1.5rem;
+}
+
+.live-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.live-container iframe {
+    width: 100%;
+    max-width: 560px;
+    height: 315px;
+    border: none;
+    border-radius: 10px;
+}
+
+/* Imagens da Galeria */
+.gallery {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    padding: 2rem;
+    position: relative;
+    height: 600px; /* Define uma altura fixa para o contêiner da galeria */
+}
+
+.gallery-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.gallery img {
+    width: 100%;
+    height: 100%; /* Faz com que a imagem preencha a altura do contêiner */
+    object-fit: cover; /* Mantém a proporção da imagem e a recorta para preencher o contêiner */
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+/* Estilos para o lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    margin: auto;
+    display: block;
+}
+
+.lightbox:target {
+    display: flex;
+}
+
+/* Estilos para a seção da história dos noivos */
+#story {
+
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    display: flex;
+    gap: 2rem;
+}
+
+#story h2 {
+    font-size: 2.4rem;
+    margin-bottom: 1.5rem;
+    color: #4B5049; /* Cor do texto dos títulos */
+}
+
+#story .story-text {
+    flex: 1;
+    font-size: 1.2rem;
+    color: #4B5049; /* Cor do texto do conteúdo */
+    text-align: left;
+    line-height: 1.8;
+}
+
+#story .story-images {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#story .story-images img {
+    width: 150px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#story .story-images img:nth-child(1) {
+    margin-left: 10px;
+}
+
+#story .story-images img:nth-child(2) {
+    margin-left: 0px;
+}
+
+#story .story-images img:nth-child(3) {
+    margin-left: 20px;
+}
+
+/* Estilos para os detalhes do evento */
+.details-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+}
+
+.details-card {
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    min-width: 250px;
+}
+
+.detail-icon {
+    font-size: 2rem;
+    margin-right: 10px;
+    color: #808C74; /* Cor dos ícones de detalhes */
+}
+
+.detail-text {
+    font-size: 1.3rem;
+    color: #4B5049; /* Cor do texto de detalhes */
+}
+
+/* Footer styling */
+footer {
+    background-color: #4B5049; /* Fundo do rodapé */
+    color: #FFF;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+}
