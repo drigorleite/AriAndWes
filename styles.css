@@ -9,30 +9,52 @@ body {
     font-family: 'Lato', sans-serif;
     color: #4B5049; /* Texto principal */
     line-height: 1.6;
+    background-color: #F9F9F9;
 }
 
 header {
     background-color: #808C74; /* Fundo do cabeçalho */
     color: #FFF;
-    padding: 1.2rem;
+    padding: 1rem 2rem;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1000;
 }
 
 header h1 {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     font-weight: 300;
+}
+
+/* Menu Hamburger */
+.menu-toggle {
+    display: none;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: #FFF;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem 0;
 }
 
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    padding: 0;
-}
-
-nav ul li {
-    padding: 0 15px;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 nav ul li a {
@@ -40,6 +62,31 @@ nav ul li a {
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+nav.collapsed {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: #808C74;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+nav.collapsed ul {
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 section {
@@ -51,27 +98,28 @@ section {
     position: absolute;
     top: 20px;
     right: 20px;
+    display: flex;
+    gap: 0.5rem;
 }
 
 .language-switcher button {
     background-color: #808C74;
     color: white;
     border: none;
-    padding: 10px 20px;
-    margin: 0 5px;
+    padding: 10px 15px;
     cursor: pointer;
     border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 .language-switcher button:hover {
     background-color: #4B5049;
 }
 
-
 #home .countdown {
     font-size: 1.5rem;
-    color: #4B5049; /* Texto da contagem regressiva */
-    background-color: #FFF; /* Fundo da contagem regressiva */
+    color: #4B5049;
+    background-color: #FFF;
     padding: 1rem;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
@@ -79,65 +127,37 @@ section {
     display: inline-block;
 }
 
-#home .gallery h2, #story h2, #details h2, #rsvp h2 {
+h2 {
     font-size: 2.2rem;
-    color: #4B5049; /* Texto dos títulos das seções */
+    color: #4B5049;
     margin-bottom: 1.5rem;
 }
 
-/* Estilos para a seção de transmissão ao vivo */
-#live {
-    padding: 2rem;
-    margin-top: 1rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
-}
-
-#live h2 {
-    font-size: 2.2rem;
-    color: #4B5049; /* Texto dos títulos das seções */
-    margin-bottom: 1.5rem;
-}
-
-.live-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.live-container iframe {
-    width: 100%;
-    max-width: 920px;
-    height: 720px;
-    border: none;
-    border-radius: 10px;
-}
-
-/* Imagens da Galeria */
+/* Estilos para a galeria */
 .gallery {
     display: flex;
-    overflow: hidden;
-    width: 100%;
+    overflow-x: auto;
+    gap: 1rem;
     padding: 2rem;
-    position: relative;
-    height: 600px; /* Define uma altura fixa para o contêiner da galeria */
-}
-
-.gallery-track {
-    display: flex;
-    transition: transform 0.5s ease;
+    scroll-snap-type: x mandatory;
 }
 
 .gallery img {
     width: 100%;
-    height: 100%; /* Faz com que a imagem preencha a altura do contêiner */
-    object-fit: cover; /* Mantém a proporção da imagem e a recorta para preencher o contêiner */
+    max-width: 300px;
+    height: auto;
+    object-fit: cover;
     border-radius: 8px;
+    scroll-snap-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
 }
 
-/* Estilos para o lightbox */
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Lightbox */
 .lightbox {
     display: none;
     position: fixed;
@@ -146,7 +166,6 @@ section {
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
     background-color: rgba(0, 0, 0, 0.8);
     justify-content: center;
     align-items: center;
@@ -163,107 +182,117 @@ section {
     display: flex;
 }
 
-/* Estilos para a seção da história dos noivos */
+/* Seção história */
 #story {
-
     margin: 2rem auto;
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 90%;
+    max-width: 1200px;
     display: flex;
+    flex-wrap: wrap;
     gap: 2rem;
 }
 
-#story h2 {
-    font-size: 2.4rem;
-    margin-bottom: 1.5rem;
-    color: #4B5049; /* Cor do texto dos títulos */
-}
-
 #story .story-text {
-    flex: 1;
+    flex: 1 1 60%;
     font-size: 1.2rem;
-    color: #4B5049; /* Cor do texto do conteúdo */
     text-align: left;
     line-height: 1.8;
 }
 
 #story .story-images {
+    flex: 1 1 35%;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 1rem;
 }
 
 #story .story-images img {
-    width: 150px;
+    width: 100%;
+    max-width: 150px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-#story .story-images img:nth-child(1) {
-    margin-left: 10px;
-}
-
-#story .story-images img:nth-child(2) {
-    margin-left: 0px;
-}
-
-#story .story-images img:nth-child(3) {
-    margin-left: 20px;
-}
-
-/* Estilos para os detalhes do evento */
+/* Detalhes do evento */
 .details-container {
     display: flex;
     justify-content: space-around;
-    align-items: center;
     flex-wrap: wrap;
-    padding: 1rem 0;
+    gap: 1rem;
+    padding: 2rem;
 }
 
 .details-card {
     border-radius: 8px;
     padding: 1.5rem;
-    margin: 1rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
+    flex: 1 1 calc(33.333% - 2rem);
     min-width: 250px;
+    text-align: center;
 }
 
 .detail-icon {
     font-size: 2rem;
-    margin-right: 10px;
-    color: #808C74; /* Cor dos ícones de detalhes */
+    margin-bottom: 0.5rem;
+    color: #808C74;
 }
 
-.detail-text {
-    font-size: 1.3rem;
-    color: #4B5049; /* Cor do texto de detalhes */
-}
-
-/* Footer styling */
+/* Rodapé */
 footer {
-    background-color: #4B5049; /* Fundo do rodapé */
+    background-color: #4B5049;
     color: #FFF;
     text-align: center;
     padding: 1rem;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Responsividade */
-@media (max-width: 768px) {
-    nav ul {
+@media (max-width: 720px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
         flex-direction: column;
     }
 
-    nav ul li {
-        margin: 0.5rem 0;
+    nav.collapsed {
+        display: flex;
+    }
+
+    .details-card {
+        flex: 1 1 100%;
+    }
+
+    #story {
+        flex-direction: column;
+    }
+
+    .gallery img {
+        max-width: 90%;
+    }
+
+    #home .countdown {
+        font-size: 1.2rem;
+        padding: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 0.9rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
     }
 }
